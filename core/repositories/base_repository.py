@@ -1,10 +1,10 @@
 from typing import Iterable, Optional, Type, TypeVar
 
-from django.db import models
+from django.db.models import Model, Q
 
 from .abstract_repository import AbstractRepository
 
-T = TypeVar("T", bound=models.Model)
+T = TypeVar("T", bound=Model)
 
 
 class BaseRepository(AbstractRepository[T]):

@@ -3,14 +3,15 @@ from typing import Optional
 
 from django.db import transaction
 from django.utils import timezone
-from tasks import send_loan_notification
 
 from core.services.base_service import BaseService
 from library.exceptions import (ActiveLoanNotFound, BookNotFound,
                                 MemberNotFound, NoAvailableCopies)
+from library.models import Book
 from library.repositories.book_repository import BookRepository
 from library.repositories.loan_repository import LoanRepository
 from library.repositories.member_repository import MemberRepository
+from library.tasks import send_loan_notification
 
 
 class BookService(BaseService[Book]):

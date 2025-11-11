@@ -24,3 +24,6 @@ class LoanRepository(BaseRepository[Loan]):
             Q(book__title__icontains=keyword)
             | Q(member__user__username__icontains=keyword)
         )
+
+    def get_overdue_loans(self):
+        return self.filter(due_date__lte=date.today(), is_returned=False)

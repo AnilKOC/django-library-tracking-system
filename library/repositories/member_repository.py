@@ -1,7 +1,9 @@
+from typing import Iterable
+
 from django.contrib.auth.models import User
 from django.db.models import Q
 
-from core.repositories.base_repository import BaseRepository
+from core.repositories.base_repository import BaseRepository, T
 from library.models import Member
 
 

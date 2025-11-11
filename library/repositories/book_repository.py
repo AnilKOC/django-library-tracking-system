@@ -1,6 +1,8 @@
+from typing import Iterable
+
 from django.db.models import Q
 
-from core.repositories.base_repository import BaseRepository
+from core.repositories.base_repository import BaseRepository, T
 from library.models import Book
 
 
@@ -23,3 +25,6 @@ class BookRepository(BaseRepository[Book]):
             | Q(author__first_name__icontains=keyword)
             | Q(author__last_name__icontains=keyword)
         )
+
+    def get_all(self) -> Iterable[T]:
+        return self.model.objects.select_related("author")

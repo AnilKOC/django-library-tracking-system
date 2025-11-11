@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
-from typing import Any, Generic, Iterable, Optional, TypeVar
+from typing import Any, Dict, Generic, Iterable, Optional, TypeVar
+
+from django.db.models import Q
 
 T = TypeVar("T")
 

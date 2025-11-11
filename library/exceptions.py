@@ -32,3 +32,9 @@ class NoAvailableCopies(BookServiceException):
     """No copies available (400)."""
 
     pass
+
+
+class LoanOverdueException(BookServiceException):
+    """Loan is overdued (400)."""
+
+    pass
